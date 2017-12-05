@@ -57,9 +57,9 @@ public class AnagramCalculator
 
     private static String getWordKey(String word)
     {
-        char[] chars = word.toCharArray();
+        char[] chars = word.toLowerCase().toCharArray();
         Arrays.sort(chars);
-        return new String(chars).toLowerCase();
+        return new String(chars);
     }
 
     public ArrayList<String> lookupAnagrams(String word)
@@ -67,7 +67,18 @@ public class AnagramCalculator
         ArrayList<String> words = new ArrayList<>(ourDictionaryMap.get(getWordKey(word)));
         if (words != null)
         {
-            words.remove(word);
+            if(! words.remove(word))
+            {
+                // Capitialization of Input may not be consistent with the returned Anagrams
+                for (String currentWord : words)
+                {
+                    if (currentWord.equalsIgnoreCase(word))
+                    {
+                        words.remove(currentWord);
+                        break;
+                    }
+                }
+            }
             Collections.sort(words);
         }
         setWord(word);
