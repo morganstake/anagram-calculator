@@ -18,8 +18,8 @@ Request
 GET /word/:word
 Response
 
-Returns 200 OK if the word exists in the dictionary.
-
+Returns `200 OK` if the word exists in the dictionary.
+```
 GET /word/glare
 
 HTTP 200 OK
@@ -33,18 +33,21 @@ HTTP 200 OK
       "regal"
     ]
 }
-Notes:
+```
 
-You need only return anagrams that are single words. For example, if word is hear, a her is not an anagram.
-The anagrams returned must only come from the provided list of words.
-The list of words in anagrams must not contain the requested word itself.
-The list of words in anagrams must be sorted alphabetically.
-The list of words in anagrams must be returned in their original case.
-Returns 404 Not Found if the word does not exist in the dictionary, with the response body
+#Notes:
 
+- You need only return anagrams that are single words. For example, if word is hear, "a her" is not an anagram.
+- The anagrams returned must only come from the provided list of words.
+- The list of words in anagrams must not contain the requested word itself.
+- The list of words in anagrams must be sorted alphabetically.
+- The list of words in anagrams must be returned in their original case.
+- Returns 404 Not Found if the word does not exist in the dictionary, with the response body
+```
 GET /word/asdfasdf1234
 
 HTTP 404 Not Found
 
 { "message" : "Couldn't find word asdfasdf1234" }
-Returns 404 Not Found if the word is not specified (GET /word). The response body here is irrelevant
+```
+- Returns 404 Not Found if the word is not specified (GET /word). The response body here is irrelevant
