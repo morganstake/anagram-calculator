@@ -52,7 +52,8 @@ public class AnagramCalculator
                 System.out.println(key + " => " + value.size());
 
             }
-        }}
+        }
+    }
 
     private static String getWordKey(String word)
     {
