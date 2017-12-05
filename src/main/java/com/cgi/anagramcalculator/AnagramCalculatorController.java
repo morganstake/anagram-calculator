@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class AnagramCalculatorController
 {
-    @RequestMapping("/word/:{word}")
+    @RequestMapping(value="/word/:{word}", method=RequestMethod.GET)
     public AnagramCalculator word(@PathVariable("word") String word)
     {
         AnagramCalculator acs = new AnagramCalculator();
