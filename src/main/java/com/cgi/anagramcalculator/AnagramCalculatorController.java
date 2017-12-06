@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class AnagramCalculatorController
 {
-    @RequestMapping(value="/word/:{word}", method=RequestMethod.GET)
+    @RequestMapping(value="/word/{word}", method=RequestMethod.GET)
     public AnagramCalculator word(@PathVariable("word") String word)
     {
         AnagramCalculator acs = new AnagramCalculator();
@@ -30,7 +30,7 @@ public class AnagramCalculatorController
     class UnknownWordException extends RuntimeException
     {
         String myMessage;
-        private String ourMessageTemplate = "{ \"message\" : \"Couldn't find word %s\"}";
+        private String ourMessageTemplate = "{ \"message\" : \"Couldn't find word %s\" }";
 
         public UnknownWordException(String word)
         {

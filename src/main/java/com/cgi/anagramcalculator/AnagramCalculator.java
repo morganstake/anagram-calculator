@@ -28,9 +28,9 @@ public class AnagramCalculator
                 if (wordList == null)
                 {
                     wordList = new ArrayList<String>();
+                    dictionary.put(wordKey, wordList);
                 }
                 wordList.add(currentWord);
-                dictionary.put(wordKey, wordList);
             }
 
         }
@@ -69,7 +69,7 @@ public class AnagramCalculator
         {
             if(! words.remove(word))
             {
-                // Capitialization of Input may not be consistent with the returned Anagrams
+                // Capitalization of Input may not be consistent with the returned Anagrams
                 for (String currentWord : words)
                 {
                     if (currentWord.equalsIgnoreCase(word))
